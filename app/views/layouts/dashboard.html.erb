@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <%= render partial: 'shared/head' %>
+  <body>
+    <main class="font-serif h-screen w-screen">
+      <%= render 'shared/dash-navbar' %>
+      <%= render 'shared/dash-sidebar' %>
+
+      <section class=" bg-gray-50 w-full h-full pl-[300px] pt-[100px] pr-[50px]">
+        <%= yield %>
+      </section>
+    </main>
+  </body>
+</html>

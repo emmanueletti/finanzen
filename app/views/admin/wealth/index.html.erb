@@ -1,0 +1,52 @@
+<div>
+  <h1 class="font-bold text-l">Assets</h1>
+  <div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 ">
+      <thead class="text-xs text-gray-700 uppercase bg-white border">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Owner
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Asset name
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Category
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Value
+          </th>
+          <th scope="col" class="px-6 py-3">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @assets.each do |asset| %>
+          <tr class="bg-white border">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+              <%= asset.owner %>
+            </th>
+            <td class="px-6 py-4">
+              <%= asset.name %>
+            </td>
+            <td class="px-6 py-4 capitalize">
+              <%= asset.category %>
+            </td>
+            <td class="px-6 py-4">
+              <p class="text-sm">$
+                <%= number_with_precision(
+                asset.starting_balance,
+                :precision => 2,
+                :delimiter => ',') %>
+              </p>
+            </td>
+            <td class="px-6 py-4">
+              <%= link_to "Edit", edit_admin_asset_path(asset), class: "bg-blue-200 hover:bg-blue-300 font-bold py-2 px-4 rounded" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <h1 class="font-bold text-l mt-4">Liabilities</h1>
+</div>

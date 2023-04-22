@@ -1,5 +1,9 @@
 <div>
-  <h1 class="font-bold text-l">Assets</h1>
+  <div class="flex justify-between mb-4 items-center">
+    <h1 class="font-bold text-l">Assets</h1>
+    <%= link_to 'New asset', new_admin_asset_path, class:
+    'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+  </div>
   <div class="relative overflow-x-auto">
     <table class="w-full text-sm text-left text-gray-500 ">
       <thead class="text-xs text-gray-700 uppercase bg-white border">
@@ -35,7 +39,7 @@
             <td class="px-6 py-4">
               <p class="text-sm">$
                 <%= number_with_precision(
-                asset.starting_balance,
+                asset.asset_values.last.amount,
                 :precision => 2,
                 :delimiter => ',') %>
               </p>

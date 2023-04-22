@@ -1,0 +1,37 @@
+<%= form_with(model: debt, class: "contents") do |form| %>
+  <% if debt.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(debt.errors.count, "error") %> prohibited this debt from being saved:</h2>
+      <ul>
+        <% debt.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="my-5">
+    <%= form.label :debt_name %>
+    <%= form.text_field :name,
+    placeholder: "TD Visa",
+    class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+  <div class="my-5">
+    <%= form.label :owner %>
+    <%= form.text_field :owner,
+    class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select :category, Admin::Debt::DEBT_CATEGORIES, {}, { class: 'form-select capitalize' } %>
+  </div>
+  <div class="my-5">
+    <%= form.label :starting_value %>
+    <%= form.text_field :value,
+    value: debt.latest_debt_value_amount,
+    placeholder: "-2000",
+    class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

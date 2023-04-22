@@ -1,0 +1,22 @@
+<div id="<%= dom_id asset %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= asset.name %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Owner:</strong>
+    <%= asset.owner %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Category:</strong>
+    <%= asset.category %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Starting balance:</strong>
+    <%= asset.asset_values.last.amount %>
+  </p>
+  <% if action_name != "show" %>
+    <%= link_to 'Edit this asset', edit_admin_asset_path(asset), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

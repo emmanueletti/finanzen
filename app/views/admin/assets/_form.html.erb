@@ -10,20 +10,26 @@
     </div>
   <% end %>
   <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :asset_name %>
+    <%= form.text_field :name,
+    placeholder: "Questrade TFSA",
+    class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
   <div class="my-5">
     <%= form.label :owner %>
-    <%= form.text_field :owner, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :owner,
+    class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
   <div class="field">
     <%= form.label :category %>
     <%= form.select :category, Admin::Asset::ASSET_CATEGORIES, {}, { class: 'form-select capitalize' } %>
   </div>
   <div class="my-5">
-    <%= form.label :starting_balance %>
-    <%= form.text_field :starting_balance, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :value %>
+    <%= form.text_field :value,
+    value: asset.latest_asset_value_amount,
+    placeholder: "2000",
+    class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>

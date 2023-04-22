@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :wealth, only: [:index]
-    resources :assets, except: [:show]
+    resources :assets, except: [:show, :index]
+    resources :debts, except: [:show, :index]
   end
 end

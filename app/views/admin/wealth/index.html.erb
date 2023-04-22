@@ -52,5 +52,58 @@
       </tbody>
     </table>
   </div>
-  <h1 class="font-bold text-l mt-4">Liabilities</h1>
+  <%# division %>
+  <div class="flex justify-between my-4 items-center">
+    <h1 class="font-bold text-l">Debts</h1>
+    <%= link_to 'New debt', new_admin_debt_path, class:
+    'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+  </div>
+  <div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 ">
+      <thead class="text-xs text-gray-700 uppercase bg-white border">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Owner
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Debt name
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Category
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Value
+          </th>
+          <th scope="col" class="px-6 py-3">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @debts.each do |debt| %>
+          <tr class="bg-white border">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+              <%= debt.owner %>
+            </th>
+            <td class="px-6 py-4">
+              <%= debt.name %>
+            </td>
+            <td class="px-6 py-4 capitalize">
+              <%= debt.category %>
+            </td>
+            <td class="px-6 py-4">
+              <p class="text-sm">$
+                <%= number_with_precision(
+                debt.debt_values.last.amount,
+                :precision => 2,
+                :delimiter => ',') %>
+              </p>
+            </td>
+            <td class="px-6 py-4 self-end">
+              <%= link_to "Edit", edit_admin_debt_path(debt), class: "bg-blue-200 hover:bg-blue-300 font-bold py-2 px-4 rounded" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

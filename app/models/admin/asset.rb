@@ -5,7 +5,7 @@ module Admin
       "vehicle", "collectible", "jewelry", "other"
     ].freeze
 
-    has_many :asset_values
+    has_many :asset_values, dependent: :delete_all
 
     validates :name, :owner, presence: true
     validates :category, presence: true,

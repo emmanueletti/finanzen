@@ -10,17 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_21_033451) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_22_193226) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "asset_values", force: :cascade do |t|
+    t.bigint "amount"
+    t.bigint "asset_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "date"
+    t.index ["asset_id"], name: "index_asset_values_on_asset_id"
+  end
 
   create_table "assets", force: :cascade do |t|
     t.string "name"
     t.string "owner"
     t.string "category"
-    t.bigint "starting_balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "asset_values", "assets"
 end

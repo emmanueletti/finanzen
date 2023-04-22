@@ -5,9 +5,15 @@ module Admin
       "vehicle", "collectible", "jewelry", "other"
     ].freeze
 
+    has_many :asset_values
+
     validates :name, :owner, presence: true
-    validates :category, presence: true, inclusion: {in: ASSET_CATEGORIES, case_sensitive: false}
-    validates :starting_balance,
-      numericality: {greater_than_or_equal_to: 0}
+    validates :category, presence: true,
+      inclusion: {in: ASSET_CATEGORIES, case_sensitive: false}
+    validates_associated :asset_values
+
+    def latest_asset_value_amount
+      @latest_asset_value_amount ||= asset_values.last&.amount
+    end
   end
 end

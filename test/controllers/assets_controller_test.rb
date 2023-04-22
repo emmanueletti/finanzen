@@ -18,7 +18,7 @@ class AssetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create asset" do
     assert_difference("Asset.count") do
-      post assets_url, params: {asset: {name: @asset.name, owner: @asset.owner, starting_balance: @asset.starting_balance, category: @asset.category}}
+      post assets_url, params: {asset: {name: @asset.name, owner: @asset.owner, starting_balance: @asset.asset_values.last.amount, category: @asset.category}}
     end
 
     assert_redirected_to admin_asset_url(Asset.last)
@@ -35,7 +35,7 @@ class AssetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update asset" do
-    patch asset_url(@asset), params: {asset: {name: @asset.name, owner: @asset.owner, starting_balance: @asset.starting_balance, category: @asset.category}}
+    patch asset_url(@asset), params: {asset: {name: @asset.name, owner: @asset.owner, starting_balance: @asset.asset_values.last.amount, category: @asset.category}}
     assert_redirected_to admin_asset_url(@asset)
   end
 

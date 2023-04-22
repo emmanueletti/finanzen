@@ -16,7 +16,7 @@ class AssetsTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @asset.name
     fill_in "Owner", with: @asset.owner
-    fill_in "Starting balance", with: @asset.starting_balance
+    fill_in "Starting balance", with: @asset.asset_values.last.amount
     fill_in "Category", with: @asset.category
     click_on "Create Asset"
 
@@ -30,7 +30,7 @@ class AssetsTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @asset.name
     fill_in "Owner", with: @asset.owner
-    fill_in "Starting balance", with: @asset.starting_balance
+    fill_in "Starting balance", with: @asset.asset_values.last.amount
     fill_in "Category", with: @asset.category
     click_on "Update Asset"
 

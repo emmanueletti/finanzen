@@ -1,7 +1,11 @@
 <h1 class="text-2xl mb-4">Hello,</h1>
 <div class="border bg-white p-5">
-  <p class="text-2xl mb-4"> <span class="text-sm">$ </span>525,000</p>
+  <p class="text-2xl mb-4">
+    <span class="text-sm">$ </span>
+    <%= number_with_precision(
+                @total_wealth,
+                :precision => 2,
+                :delimiter => ',') %>
+  </p>
   <p class="text-sm">Total Wealth</p>
 </div>
-
-

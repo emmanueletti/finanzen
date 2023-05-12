@@ -8,7 +8,7 @@
 A privacy-focused, free and open-source financial management tool to help
 Canadian households understand their money better.
 
-The primary purpose of this project is to build a product using as little libraries and gems as possible in order to better understand what goes on at the roots.
+The primary purpose of this project is to build a SaaS product using as little libraries and gems as possible in order to better understand what goes on at the roots.
 
 ## Development
 

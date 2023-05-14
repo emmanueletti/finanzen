@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  before_save :downcase_email
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true,
@@ -9,5 +11,11 @@ class User < ApplicationRecord
 
   def is_admin?
     admin
+  end
+
+  private
+
+  def downcase_email
+    self.email = email.downcase
   end
 end

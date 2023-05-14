@@ -6,4 +6,8 @@ class User < ApplicationRecord
     format: {with: URI::MailTo::EMAIL_REGEXP}
 
   belongs_to :household
+
+  def is_admin?
+    admin
+  end
 end

@@ -18,17 +18,19 @@ Make sure the foreman gem is globally installed
 gem install foreman
 ```
 
-To start the server with tailwind running in watch mode as well
+To start the rails server with tailwind running in watch mode:
 
 ```bash
 bin/dev
 ```
 
-To only run the rails server without tailwind running in watch mode.
-This is important when trying to use `binding.pry`
+This uses [foreman](https://github.com/theforeman/foreman) to start both the Tailwind watch process and the rails server in development mode.
+
+
+To only run the rails server without tailwind running in watch mode:
 
 ```bash
 rails server
 ```
 
-This uses foreman to start both the Tailwind watch process and the rails server in development mode.
+This is important when trying to use a debugger like `binding.pry`.

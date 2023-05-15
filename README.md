@@ -24,7 +24,7 @@ To start the rails server with tailwind running in watch mode:
 bin/dev
 ```
 
-This uses [foreman](https://github.com/theforeman/foreman) to start both the Tailwind watch process and the rails server in development mode.
+This [uses foreman](https://github.com/rails/tailwindcss-rails#update-assets-automatically) to start both the Tailwind watch process and the rails server in development mode.
 
 
 To only run the rails server without tailwind running in watch mode:

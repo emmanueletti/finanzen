@@ -8,7 +8,7 @@
 A privacy-focused, free and open-source financial management tool to help
 Canadian households understand their money better.
 
-The primary purpose of this project is to build a vanilla Rails application using as little additional libraries and gems as possible as a way to better understand what goes on at the roots.
+The primary purpose of this project is to build a vanilla Rails application using as little additional libraries and gems as possible as a learning experience to better understand what goes on at the roots.
 
 ## Development
 
